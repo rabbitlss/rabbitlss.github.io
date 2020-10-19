@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>分治算法 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="​ 算法第一课：分治 ​ 分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。 ​ 分" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="分治算法" />
+<meta property="og:description" content="​ 算法第一课：分治 ​ 分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。 ​ 分" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" />
+<meta property="article:published_time" content="2020-08-19T23:10:23+08:00" />
+<meta property="article:modified_time" content="2020-08-19T23:50:23+08:00" />
+<meta itemprop="name" content="分治算法">
+<meta itemprop="description" content="​ 算法第一课：分治 ​ 分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。 ​ 分">
+<meta itemprop="datePublished" content="2020-08-19T23:10:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-19T23:50:23&#43;08:00" />
+<meta itemprop="wordCount" content="1128">
+
+
+
+<meta itemprop="keywords" content="preview,算法,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="分治算法"/>
+<meta name="twitter:description" content="​ 算法第一课：分治 ​ 分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。 ​ 分"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">分治算法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-19 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+          <span class="more-meta"> 1128 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>​                                                  算法第一课：分治</p>
+<p>​    分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。</p>
+<p>​    分治的一个典型的例子是归并排序，它的步骤如下：</p>
+<ol>
+<li>分解等待排序的 n个元素的序列成为n/2 个元素的两个子序列。</li>
+<li>使用归并排序递归排序两个子序列。</li>
+<li>合并两个已排序的子序列以产生已排序的答案。</li>
+</ol>
+<p>我们来看下它的时间代价：在步骤1里分解 需要$log_2^N$步，步骤2的时间代价是O(n)，步骤3里的merge 需要C(n), 所以总的时间代价是： n*$log_2^N$ + C(n).</p>
+<p>可以用这个思路去分析其他的分治例子。</p>
+<p>以下例子都用python实现。</p>
+<p>题目一：求出一个数组中的逆序对。</p>
+<h1 id="---codingutf-8---">-<em>- coding:utf-8 -</em>-</h1>
+<p>class Solution:
+def InversePairs(self, data):
+# write code here
+​        #用归并排序，归并拼接后用计算排序时元素的index变动了少
+​        _,s=self.MergeSort(data)
+​        return s%1000000007
+​    def MergeSort(self,data):
+​        n=len(data)
+​        #递归基
+​        if n==1:return data, 0
+​        #分两半来排序
+​        part1,part2=data[:n//2],data[n//2:]
+​        sorted_part1,s1=self.MergeSort(part1)
+​        sorted_part2,s2=self.MergeSort(part2)
+​        #排序后拼接这两半，拼接后先计数，然后将两个有序序列合并
+​        s,sorted_temp=0,sorted_part1+sorted_part2
+​        #用p、q两个指针指向两段，计算q中每个元素离插入点的index差
+​        p,q,len1,len_all=0,sorted_temp.index(sorted_part2[0]),len(sorted_part1),len(sorted_temp)
+​        while p&lt;len1 and q&lt;len_all:
+​            #移动p使p成为插入排序的插入点，计算要移动多少个位置
+​            while p&lt;len1:
+​                if sorted_temp[q]&lt;sorted_temp[p]:
+​                    s+=len1-p
+​                    break
+​                p+=1
+​            q+=1
+​        #完成排序，并把排序后的内容回溯给上一级做准备
+​        l=[]
+​        p,q=0,sorted_temp.index(sorted_part2[0])
+​        while p&lt;len1 and q&lt;len_all:
+​            if sorted_temp[p]&lt;sorted_temp[q]:
+​                l.append(sorted_temp[p])
+​                p+=1
+​            else:
+​                l.append(sorted_temp[q])
+​                q+=1
+​        if p==len1:l+=sorted_temp[q:]
+​        if q==len_all:l+=sorted_part1[p:]
+​        return l,s+s1+s2</p>
+<p>题目二：已知一个数组中有正数也有负数，求出一个最大子数组。</p>
+<p>其实这道题还可以用动态规划的方法，时间代价是O(n), 这里用的是分治的做法，时间代价跟上文一样。</p>
+<p>int MaxSubSum(int *arr,int Left,int Right)
+2 {
+4     int MaxLeftSum,MaxRightSum;  //最大连续子数组没被中间的center切开时左右部分最大连续子数组之和
+6     int MaxLeftPartSum,MaxRightPartSum;//最大连续子数组被center切开时，最大子数组左右两部分的和
+8     int LeftPartSum,RightPartSum;  //临时变量，用于存储计算出来的和
+9     int Center,i;
+10
+11<br>
+12     if(Left == Right)   //整个数组只有一个元素
+13     {
+14         if(arr[Left] &gt; 0)<br>
+15             return arr[Left];<br>
+16         else<br>
+17             return 0;
+18     }
+19
+20     //递归调用。分别计算左右子数组的最大和子数组。
+21     //即假设最大和子数组没有被Center切割
+22     Center = (Left+Right)/2;<br>
+23     MaxLeftSum = MaxSubSum(arr,Left,Center);<br>
+24     MaxRightSum = MaxSubSum(arr,Center+1,Right);<br>
+25
+26     //假设最大和子数组被Center切开的情况
+27     //那么需要从Center开始向两侧计算
+28     MaxLeftPartSum = 0;<br>
+29     LeftPartSum = 0;<br>
+30     for(i = Center ; i &gt;= Left; &ndash;i )   //从center向左边计算
+31     {<br>
+32         LeftPartSum += arr[i];<br>
+33         if(LeftPartSum &gt; MaxLeftPartSum)<br>
+34             MaxLeftPartSum = LeftPartSum;<br>
+35     }<br>
+36     MaxRightPartSum = 0;<br>
+37     RightPartSum = 0;<br>
+38     for(i = Center+1 ; i &lt;= Right ; ++i)  //从center向右计算
+39     {<br>
+40         RightPartSum += arr[i];<br>
+41         if(RightPartSum &gt; MaxRightPartSum)<br>
+42             MaxRightPartSum = RightPartSum;<br>
+43     }
+44     //返回三者中的最大值。
+45     return max(max(MaxLeftSum,MaxRightSum),MaxLeftPartSum+MaxRightPartSum);</p>
+<p>题目三：实现 <code>pow(x, n) </code>，即计算 <code>x</code> 的 <code>n</code> 次幂函数。</p>
+<p>class Solution {
+public double myPow(double x, int n) {
+//long类型接收负数次方
+long N = n;
+if(n &lt; 0){
+N = -n;
+x = 1 / x;
+}
+return fastPow(x, N);
+}
+//转换形参类型
+public double fastPow(double x, long n){
+if(n == 0){
+return 1;
+}
+double res = fastPow(x, n / 2);
+//每一次递归后都会先执行到return，再向下递归。
+if(n % 2 == 0){
+return res * res;
+}else{
+return res * res * x;
+}
+}
+}</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">机器学习-逻辑回归</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/">
+            <span class="next-text nav-default">News_机器学习下的文本分类常用算法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-08-19 23:10:23 \u002b0800 CST',
+        title: '分治算法',
+        link: decodeURI(location.href),
+        desc: '​ 算法第一课：分治 ​ 分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。 ​ 分',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

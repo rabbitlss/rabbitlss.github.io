@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tag-5 on Even - A super concise theme for Hugo</title>
+    <link>https://rabbitlss.github.io/tags/tag-5/</link>
+    <description>Recent content in tag-5 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 29 Aug 2020 00:10:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://rabbitlss.github.io/tags/tag-5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>查找算法2</title>
+      <link>https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95_2/</link>
+      <pubDate>Sat, 29 Aug 2020 00:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95_2/</guid>
+      <description>1.两数之和 给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 你可以假设每种</description>
+    </item>
+    
+    <item>
+      <title>查找算法</title>
+      <link>https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Wed, 26 Aug 2020 00:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</guid>
+      <description>查找的基本数据结构： 数值有无：set ，set没有重复值，没有顺序。 数值有相同的多个，有顺序：list 数值不允许重复，且有对应关系：dict，</description>
+    </item>
+    
+    <item>
+      <title>动态规划算法</title>
+      <link>https://rabbitlss.github.io/post/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 23 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/</guid>
+      <description>动态规划常常适用于有重叠子问题和最优子结构性质的问题，动态规划方法所耗时间往往远少于朴素解法。 主要思想 若要解一个给定问题，我们需要解其不同部</description>
+    </item>
+    
+    <item>
+      <title>机器学习-逻辑回归</title>
+      <link>https://rabbitlss.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Thu, 20 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</guid>
+      <description>1 什么是逻辑回归？ 逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊</description>
+    </item>
+    
+    <item>
+      <title>分治算法</title>
+      <link>https://rabbitlss.github.io/post/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Wed, 19 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</guid>
+      <description>​ 算法第一课：分治 ​ 分治的核心在于将复杂的问题递归的分为多个子问题求解（独立的，性质相同），先解决子问题，再把子问题合并起来解决原问题。 ​ 分</description>
+    </item>
+    
+    <item>
+      <title>News_机器学习下的文本分类常用算法</title>
+      <link>https://rabbitlss.github.io/post/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/</link>
+      <pubDate>Tue, 04 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/</guid>
+      <description>这节讲的是用机器学习的方法对文本进行归类， 常用的文本处理方法和机器学习方法 TF-IDF是处理文本离散值的一种方式， sklearn中有两种实现</description>
+    </item>
+    
+    <item>
+      <title>News_深度学习BERT</title>
+      <link>https://rabbitlss.github.io/post/nlp%E6%96%B0%E9%97%BB%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02/</link>
+      <pubDate>Tue, 04 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/nlp%E6%96%B0%E9%97%BB%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02/</guid>
+      <description>Transformer Transformer是一种完全基于Attention机制来加速深度学习训练过程的算法模型，其最大的优势在于其在并行化处理上做出的贡献。换</description>
+    </item>
+    
+    <item>
+      <title>News_深度学习下的文本分类_FastText</title>
+      <link>https://rabbitlss.github.io/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB_fasttext/</link>
+      <pubDate>Tue, 04 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB_fasttext/</guid>
+      <description>做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。 现在文本表示方法的缺陷： One-hot / Bag of Words：转换得到的向量维度很高， TF-ID</description>
+    </item>
+    
+    <item>
+      <title>News_深度学习word2Vec</title>
+      <link>https://rabbitlss.github.io/post/%E4%BD%BF%E7%94%A8gensim%E8%AE%AD%E7%BB%83word2vec/</link>
+      <pubDate>Sat, 01 Aug 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E4%BD%BF%E7%94%A8gensim%E8%AE%AD%E7%BB%83word2vec/</guid>
+      <description>使用gensim训练word2vec 在上一章节，我们通过FastText快速实现了基于深度学习的文本分类模型，但是这个模型并不是最优的。在本</description>
+    </item>
+    
+    <item>
+      <title>News_赛题数据分析</title>
+      <link>https://rabbitlss.github.io/post/news_%E8%B5%9B%E9%A2%98%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <pubDate>Wed, 22 Jul 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/news_%E8%B5%9B%E9%A2%98%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <description>本节是通过数据分析来对天池入门赛数据做一些学习。 一. 目标： 学会用pandas读取数据，plt展示图像，collections统计分布规律 二.</description>
+    </item>
+    
+    <item>
+      <title>News_赛题理解</title>
+      <link>https://rabbitlss.github.io/post/news_%E8%B5%9B%E9%A2%98%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Mon, 20 Jul 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/news_%E8%B5%9B%E9%A2%98%E7%90%86%E8%A7%A3/</guid>
+      <description>新闻文本分类： 本题是以新闻数据做分类，文本数据已经token化，不需要做数据清洗。 目标： 划分到14个分类中。 评分标准： 按照f1作为标准。 比赛</description>
+    </item>
+    
+    <item>
+      <title>3.假设检验方法论总结</title>
+      <link>https://rabbitlss.github.io/post/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 27 Jun 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</guid>
+      <description>1. 基本背景概念： 前一篇笔记讲述了样本的数据分布规律，我们研究样本的数据特征最终是为了推断总体的数据特征，提出某些关于总体的假设，例如是否服从</description>
+    </item>
+    
+    <item>
+      <title>4.方差分析和回归分析</title>
+      <link>https://rabbitlss.github.io/post/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sat, 27 Jun 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</guid>
+      <description>从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些</description>
+    </item>
+    
+    <item>
+      <title>2.数理统计和描述性统计笔记</title>
+      <link>https://rabbitlss.github.io/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 25 Jun 2020 16:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/</guid>
+      <description>上一篇笔记已经讲述了概率论的基本内容，我们研究的随机变量分布都是假设已知的，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量</description>
+    </item>
+    
+    <item>
+      <title>1.随机变量笔记</title>
+      <link>https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 22 Jun 2020 12:01:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</guid>
+      <description>1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前</description>
+    </item>
+    
+  </channel>
+</rss>

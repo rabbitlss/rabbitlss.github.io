@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.随机变量笔记 on Even - A super concise theme for Hugo</title>
+    <link>https://rabbitlss.github.io/tags/1.%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 1.随机变量笔记 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 22 Jun 2020 12:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://rabbitlss.github.io/tags/1.%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.随机变量笔记</title>
+      <link>https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 22 Jun 2020 12:01:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</guid>
+      <description>1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>1.随机变量笔记 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="1.随机变量笔记" />
+<meta property="og:description" content="1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-06-22T12:01:23+08:00" />
+<meta property="article:modified_time" content="2020-06-22T12:01:23+08:00" />
+<meta itemprop="name" content="1.随机变量笔记">
+<meta itemprop="description" content="1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前">
+<meta itemprop="datePublished" content="2020-06-22T12:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-22T12:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="1939">
+
+
+
+<meta itemprop="keywords" content="preview,1.随机变量笔记,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1.随机变量笔记"/>
+<meta name="twitter:description" content="1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">1.随机变量笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-22 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"> 概率统计 </a>
+            </div>
+          <span class="more-meta"> 1939 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <h3 id="1-基本概念">1. 基本概念</h3>
+<p><strong>随机实验</strong>具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前不能确定哪个结果会出现。</p>
+<p>我们使用随机实验去探索<strong>随机现象</strong>。</p>
+<p>虽然在每次实验之前不能预知实验结果，实验所有可能的结果是已知的，我们将随机实验<strong>E</strong> 的<strong>所有实验结果</strong>集合称为<strong>样本空间</strong>，记为<strong>S</strong>。样本空间中的每个元素，称为<strong>样本点</strong>。</p>
+<p>比如：</p>
+<p>$$
+S_{2}:{H,T}
+S_{3}:{0,1,2,3}
+S_{4}:{t|t&gt;=0}
+$$
+在相同的条件下进行了n次实验，事件A发生的次数$n_{A}$称为A发生的**频数**，比值$n_{A}$ /div $n称为事件A发生的**频率**，频率有如下特征：
+$$
+0&lt;=f_{n}(A)&lt;=1
+$$</p>
+<p>$$
+f_{n}(S)=1
+$$</p>
+<p>$$
+若A_{1},A_{2},A_{3},&hellip;,A_{n}是两两不相容的事件，则：f_{n}(A_{1}\cup A_{2} \cup A_{3} \cup A_{4}&hellip;.\cup A_{n})= f_{n}(A_{1}) + f_{n}(A_{2}) + f_{n}(A_{3})&hellip;+f_{n}(A_{n}) )
+$$</p>
+<p>大量实验证明，当重复实验的次数n逐渐增大时，频率<code>$f_{n}(A)$</code> 稳定于<strong>某个常数</strong>，这种频率稳定性即通常所说的<strong>统计规律性</strong>，因此让实验重复大量的次数，计算频率<code>$f_{n}(A)$</code>，以它来表征事件A发生可能性的大小。</p>
+<p><strong>条件概率</strong>，根据古典概率定义得：
+$$
+P(A|B) = \frac {P(AB)}{P(B)}
+$$
+<strong>使用场景：<strong>现在流行的说法</strong>先验概率</strong> 是由因求果的概率，<strong>后验概率</strong>是由果求因的概率，比如今天下雨，求堵车的概率，这是先验概率。已知今天堵车，求下雨的概率，这是<strong>后验概率</strong>，也就是说有多少可能是由于下雨造成的堵车。一般来说<strong>后验概率</strong>比较难于估算，可以用条件概率的公式得出后验概率的计算方式：
+$$
+A：下雨，B：堵车，求P(A|B).
+$$</p>
+<p>$$
+P(A|B) = \frac {P(AB)}{P(B)}
+$$</p>
+<p>$$
+P(B|A)=\frac {P(AB)}{P(A)}
+$$</p>
+<p>$$
+所以P(A|B) = \frac {P(B|A)*P(A)}{P(B)} (1.1)
+$$</p>
+<p><strong>全概率公式</strong>：设<strong>S</strong>是实验<strong>E</strong>的样本空间，<strong>B</strong>是E的事件，<strong>A</strong>是<strong>S</strong>的一个划分，且P(A)&gt;0,则：
+$$
+P(B) = P(B|A_{1})+P(B|A_{2})+P(B|A_{3})&hellip;+P(B|A_{n})  （1.2）
+$$
+**使用场景**：在很多实际问题中P(A) 不容易求出，但容易找到S的一个划分B，由1.2 求出A的概率。</p>
+<p>由以上<strong>条件概率</strong>(1.1) 和<strong>全概率公式</strong>(1.2)推导出的是<strong>贝叶斯公式</strong>：
+$$
+p(A_{i}|B)=\frac {P(B|A_{i})*P(A_{i})}{\sum ^{n}_{i=0}P(B)P(B|A_{i})}
+$$
+**独立性**的定义：定义P(B|A), 事件A的发生对B来说会有影响，这时P(B|A)&lt;&gt;P(B)，只有当A和B完全没有关系才会有P(B|A) = P(B)。</p>
+<p>P(AB)=P(B|A)*P(A) = P(B)*P(A)</p>
+<p>如果A和B独立，那么$\bar{A}$ 和B，$\bar{B}$ 和A，$\bar{A}$ 和 $\bar{B}$ 都互相独立。</p>
+<h5 id="离散型随机变量的分布规律">离散型随机变量的分布规律：</h5>
+<h6 id="1-0-1分布">1. 0-1分布：</h6>
+<p>随机变量X只可能取0和1两个值，分布律：
+$$
+P{X=k}=p^{k}(1-p)^{(1-k)}
+$$</p>
+<h6 id="2-二项分布">2. 二项分布:</h6>
+<p>$$
+P{X=k}={n \choose k}p^{k}(1-p)^{n-k},k=0,1,2,3&hellip;
+$$</p>
+<h5 id="离散型随机变量的分布函数">离散型随机变量的分布函数：</h5>
+<p>$$
+F(x)=f{X&lt;=x},-\infty&lt;x&lt;+\infty
+$$</p>
+<h5 id="连续性随机变量的分布规律">连续性随机变量的分布规律：</h5>
+<p>对于随机变量X的分布函数F(x) , 存在非负可积函数f(x), 使之对于任意实数x有：
+$$
+F(x) = \int^{x}_{-\infty}f(t)dt
+$$
+称f(t) 为概率密度函数。</p>
+<h6 id="1-均匀分布">1. 均匀分布：</h6>
+<p>$$
+f(x) = \frac{1}{b-a}, a&lt;x&lt;b
+$$</p>
+<p>$$
+f(x)=0, x为其他
+$$</p>
+<h6 id="heading"></h6>
+<h6 id="2-正态分布">2. 正态分布：</h6>
+<p>$$
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{\frac{-(x-\Theta)^2}{2\sigma^2}}
+$$</p>
+<p>概率密度的峰值是：
+$$
+\frac{1}{\sqrt{2\pi}\sigma}
+$$</p>
+<h5 id="连续性随机变量分布函数">连续性随机变量分布函数：</h5>
+<p>正态分布函数：
+$$
+F(x) = \frac{1}{\sqrt{2\pi}\sigma}\int^{x}_{-\infty} e^{\frac{-(t-\Theta)^2}{2\sigma^2}}dt
+$$</p>
+<h4 id="随机变量和连续变量的数学特征">随机变量和连续变量的数学特征</h4>
+<h5 id="数学期望均值">数学期望（均值）：</h5>
+<ol>
+<li><strong>随机变量</strong>有分布律描述分布情况，因此计算公式为：</li>
+</ol>
+<p>$$
+E(X)=\sum^{\infty}<em>{k=1}k*p</em>{k},离散型随机变量
+$$</p>
+<p>$$
+E(X)=\int^{\infty}_{-\infty}xf(x)dx, 连续性随机变量
+$$</p>
+<p>前提是：级数和积分都绝对收敛</p>
+<ol start="2">
+<li>
+<p><strong>连续函数</strong>的数学期望计算定理：</p>
+<p>设Y是随机变量X的函数，Y=g(X), g是连续函数，如果X是<strong>离散型随机变量</strong>，它的分布律是：
+$$
+P{X=x_{k}}=p_{k},k=1,2,3,&hellip;如果\sum^{\infty}_{k=1}g(x_{k})p_{k}绝对收敛，则有E(Y)=E[g(X)]=\sum^{\infty}_{k=1}g(x_{k})p_{k}，（1.4）
+$$
+如果X是连续性随机变量，它概率密度函数是f(x), 则有：
+$$
+E(Y)=E(g(X))=\int^{\infty}_{-\infty}g(x)f(x)dx，前提是：\int^{\infty}_{-\infty}g(x)f(x)dx绝对收敛，（1.5）
+$$ {1.3}
+这个计算定理很重要，它是后面**方差**计算的重要依据。</p>
+</li>
+</ol>
+<h5 id="方差">方差：</h5>
+<p>除了描述变量的均值，考虑变量跟均值的偏离程度很重要，这个偏离程度也是期望值：
+$$
+Var(X) = E{[X-E(X)]^{2}}
+$$
+根据（1.4）得离散型变量的计算公式：
+$$
+D(X)=\sum^{\infty}<em>{k=1}[x</em>{k}-E(X)]^2*p_{k}
+$$
+根据（1.5）得连续型变量的计算公式：
+$$
+D(X)=\int^{\infty}_{-\infty}(x-E(X))^2*f(x)dx
+$$</p>
+<p>方差的重要性质：</p>
+<ol>
+<li>
+<p>D(X)=0的充要条件是X以概率1取常数E(X)，即P{X=E(X)}=1</p>
+</li>
+<li>
+<p>设X，Y是两个随机变量，则有：
+$$
+D(X+Y)=D(X) + D(Y)+2E{(X-E(X))(Y-E(Y))}如果X和Y互相独立，D(X+Y)=D(X)+D(Y)
+$$</p>
+</li>
+</ol>
+<p>如果X和Y相互独立，有D(X+Y)=D(X)+D(Y)</p>
+<ol start="3">
+<li><strong>切比雪夫不等式</strong>：用于估计<strong>连续性随机变量</strong>偏离均值E(X)的程度的概率大小
+$$
+P{|X-E(X)|&gt;=\xi}&lt;=\frac{\sigma^2}{\xi},(1.6)
+$$</li>
+</ol>
+<p>$$
+可以推出许多结论，例如著名的3\sigma原则：一般正态分布，\mu-3\sigma和\mu+3\sigma区间的概率密度函数下的面积占总面积的99.8%
+$$</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-06-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/1.%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/">1.随机变量笔记</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">2.数理统计和描述性统计笔记</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/spark-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-06-22 12:01:23 \u002b0800 CST',
+        title: '1.随机变量笔记',
+        link: decodeURI(location.href),
+        desc: '1. 基本概念 随机实验具有三个特点：1. 在一定的条件下重复的去做。2.每次实验的结果不一定相同，必须明确实验的所有可能结果。3.进行一次实验之前',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>News_深度学习下的文本分类_FastText - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。 现在文本表示方法的缺陷： One-hot / Bag of Words：转换得到的向量维度很高， TF-ID" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB_fasttext/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="News_深度学习下的文本分类_FastText" />
+<meta property="og:description" content="做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。 现在文本表示方法的缺陷： One-hot / Bag of Words：转换得到的向量维度很高， TF-ID" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB_fasttext/" />
+<meta property="article:published_time" content="2020-08-04T23:10:23+08:00" />
+<meta property="article:modified_time" content="2020-08-04T23:50:23+08:00" />
+<meta itemprop="name" content="News_深度学习下的文本分类_FastText">
+<meta itemprop="description" content="做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。 现在文本表示方法的缺陷： One-hot / Bag of Words：转换得到的向量维度很高， TF-ID">
+<meta itemprop="datePublished" content="2020-08-04T23:10:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-04T23:50:23&#43;08:00" />
+<meta itemprop="wordCount" content="880">
+
+
+
+<meta itemprop="keywords" content="preview,NLP,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="News_深度学习下的文本分类_FastText"/>
+<meta name="twitter:description" content="做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。 现在文本表示方法的缺陷： One-hot / Bag of Words：转换得到的向量维度很高， TF-ID"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">News_深度学习下的文本分类_FastText</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-04 </span>
+        <div class="post-category">
+            <a href="/categories/nlp/"> NLP </a>
+            </div>
+          <span class="more-meta"> 880 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。</p>
+<p><strong>现在文本表示方法的缺陷</strong>：</p>
+<p>One-hot / Bag of Words：转换得到的向量维度很高，</p>
+<p>TF-IDF：没有考虑单词与单词之间的关系，只是进行了统计。</p>
+<p>N-gram: 考虑到了单词与单词之间的关系，但是转换得到的响亮维度很高。</p>
+<p><strong>与传统机器学习不同，深度学习既提供特征提取功能，也可以完成分类的功能</strong>。</p>
+<p>深度学习也可以用于文本表示，还可以将其映射到一个低纬空间。其中比较典型的例子有：FastText、Word2Vec和Bert。在本章我们将介绍FastText，将在后面的内容介绍Word2Vec和Bert。</p>
+<p>Fasttext是Facebook开源的一个文本分类包，是一种典型的深度学习词向量的表示方法，它非常简单通过Embedding层将单词映射到稠密空间，然后将句子中所有的单词在Embedding空间中进行平均，进而完成分类操作。</p>
+<p>所以FastText是一个三层的神经网络，输入层、隐含层和输出层</p>
+<p>![屏幕快照 2020-07-28 上午8.34.39](/Users/lishanshan/Desktop/屏幕快照 2020-07-28 上午8.34.39.png)</p>
+<p>这是keras实现的FastText网络结构：</p>
+<p>![屏幕快照 2020-07-28 上午8.35.01](/Users/lishanshan/Desktop/屏幕快照 2020-07-28 上午8.35.01.png![屏幕快照 2020-07-28 上午8.35.01](/Users/lishanshan/Desktop/屏幕快照 2020-07-28 上午8.35.01.png)</p>
+<p>FastText在文本分类任务上，是优于TF-IDF的：</p>
+<ul>
+<li>FastText用单词的Embedding叠加获得的文档向量，将相似的句子分为一类</li>
+<li>FastText学习到的Embedding空间维度比较低，可以快速进行训练</li>
+</ul>
+<p><strong>参考以下深度学习的论文：</strong></p>
+<p>Bag of Tricks for Efficient Text Classification, <a href="https://arxiv.org/abs/1607.01759">https://arxiv.org/abs/1607.01759</a></p>
+<p>Enriching Word Vectors with Subword Information , <a href="https://arxiv.org/pdf/1607.04606.pdf">https://arxiv.org/pdf/1607.04606.pdf</a></p>
+<h4 id="基于fasttext的文本分类">基于FastText的文本分类：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import pandas as pd
+from sklearn.metrics import f1_score
+import fasttext
+
+# 转换为FastText需要的格式
+path_data=&#39;/Users/lishanshan/Workspace/Datawhale/NLP/train_set.csv&#39;
+train_df = pd.read_csv(path_data, sep=&#39;\t&#39;, nrows=15000)
+train_df[&#39;label_ft&#39;] = &#39;__label__&#39; + train_df[&#39;label&#39;].astype(str)
+train_df[[&#39;text&#39;,&#39;label_ft&#39;]].iloc[:-5000].to_csv(&#39;train.csv&#39;, index=None, header=None, sep=&#39;\t&#39;)
+model = fasttext.train_supervised(&#39;train.csv&#39;, lr=1.0, wordNgrams=3,
+                                  verbose=2, minCount=1, epoch=30, loss=&#34;hs&#34;)
+
+val_pred = [model.predict(x)[0][0].split(&#39;__&#39;)[-1] for x in train_df.iloc[-5000:][&#39;text&#39;]]
+print(f1_score(train_df[&#39;label&#39;].values[-5000:].astype(str), val_pred, average=&#39;macro&#39;))
+</code></pre></td></tr></table>
+</div>
+</div><p>&mdash;-0.8235</p>
+<p>优化方法：</p>
+<ol>
+<li>调整 wordNgrams=2 -&gt; 3, 数字越大精度越准确。</li>
+<li>epoch=20 -&gt; 30 , 训练次数越多精度越高。</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/nlp/">NLP</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/nlp%E6%96%B0%E9%97%BB%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">News_深度学习BERT</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E4%BD%BF%E7%94%A8gensim%E8%AE%AD%E7%BB%83word2vec/">
+            <span class="next-text nav-default">News_深度学习word2Vec</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-08-04 23:10:23 \u002b0800 CST',
+        title: 'News_深度学习下的文本分类_FastText',
+        link: decodeURI(location.href),
+        desc: '做了机器学习下的文本分类探索，接下来是深度学习的一些算法探索。 现在文本表示方法的缺陷： One-hot \/ Bag of Words：转换得到的向量维度很高， TF-ID',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>2.数理统计和描述性统计笔记 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="上一篇笔记已经讲述了概率论的基本内容，我们研究的随机变量分布都是假设已知的，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="2.数理统计和描述性统计笔记" />
+<meta property="og:description" content="上一篇笔记已经讲述了概率论的基本内容，我们研究的随机变量分布都是假设已知的，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2020-06-25T16:10:23+08:00" />
+<meta property="article:modified_time" content="2020-06-25T16:10:23+08:00" />
+<meta itemprop="name" content="2.数理统计和描述性统计笔记">
+<meta itemprop="description" content="上一篇笔记已经讲述了概率论的基本内容，我们研究的随机变量分布都是假设已知的，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量">
+<meta itemprop="datePublished" content="2020-06-25T16:10:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-25T16:10:23&#43;08:00" />
+<meta itemprop="wordCount" content="2331">
+
+
+
+<meta itemprop="keywords" content="preview,2.数理统计和描述性统计笔记,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2.数理统计和描述性统计笔记"/>
+<meta name="twitter:description" content="上一篇笔记已经讲述了概率论的基本内容，我们研究的随机变量分布都是假设已知的，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">2.数理统计和描述性统计笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-25 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"> 概率统计 </a>
+            </div>
+          <span class="more-meta"> 2331 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>上一篇笔记已经讲述了<strong>概率论</strong>的基本内容，我们研究的随机变量分布都是<strong>假设已知的</strong>，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量的分布，介绍各种常用的分布比如正态分布。</p>
+<p>在<strong>数理统计</strong>中我们研究的随机变量的分布<strong>是未知的，或者是不完全知道的</strong>，必须要通过研究的随机变量进行重复独立的观察，得出许多观察值，对数据进行分析，从而对所研究的随机变量的分布作出种种推断。</p>
+<h4 id="1-基本概念解释">1. 基本概念解释</h4>
+<p>在数理统计过程中，往往研究对象的某一数量指标，与这一指标关联的随机实验，将实验全部可能的观察值称为<strong>总体</strong>，总体的数量不一定有限，每一个观察值称为<strong>个体</strong>，总体中包含个体的个数称为总体的<strong>容量</strong>，容量有限的称为<strong>有限总体</strong>，容量无限的称为<strong>无限总体</strong>。</p>
+<p>我们在相同条件下对总体X进行n次重复的，独立的观察，将n次观察结果按照实验的次序记为X1，X2，X3，X4，&hellip;Xn。以上所有观察结果都是<strong>独立且同分布</strong>的随机变量，称为来自<strong>总体X</strong>的一个<strong>简单随机样本</strong>，简称为<strong>样本</strong>，它们的观察值称为<strong>样本值</strong>，又称为X的n个独立的<strong>观察值</strong>。</p>
+<p>它们的分布函数为：
+$$
+F^{*}(x_{1},x_{2},x_{3},&hellip;x_{n})=\prod^{n}_{i=1}F(x_{i})
+$$
+概率密度为：
+$$
+f^{*}(x_{1},x_{2},x_{3},&hellip;x_{n})=\prod^{n}_{i=1}f(x_{i})
+$$</p>
+<h4 id="2-常用的统计量">2. 常用的统计量</h4>
+<h5 id="样本均值">样本均值：</h5>
+<p>$$
+\bar{X} = \frac{1}{n}\sum^{n}<em>{i=1}X</em>{i}
+$$</p>
+<h5 id="样本方差">样本方差：</h5>
+<p>$$
+S^2=\frac{1}{n-1}\sum^{n}<em>{k=1}(X</em>{k}-\bar{X})^2=\frac{1}{n-1}(\sum^{n}<em>{k=1}X</em>{k}^2-n*\bar{X}^2)
+$$</p>
+<h5 id="样本标准差">样本标准差：</h5>
+<p>$$
+S=\sqrt{S^2}=\sqrt{\frac{1}{n-1}*\sum^{n}_{i=1}(X-\bar{X})^2}
+$$</p>
+<h5 id="样本k阶原点矩">样本k阶（原点）矩：</h5>
+<p>$$
+A_{k}=\frac{1}{n}\sum^{n}_{i=1}X^{k}_{i},k=1,2,3&hellip;
+$$</p>
+<h5 id="样本k阶中心矩">样本k阶中心矩：</h5>
+<p>$$
+B_{k}=\frac{1}{n}*\sum^{n}_{i=1}(X_{i}-\bar{X})^k,k=1,2,3&hellip;
+$$</p>
+<p><strong>函数的扩展</strong>：</p>
+<p>X1，X2，X3&hellip;.Xn是来自总体X的一个样本，g(X1,X2,X3,X4&hellip;Xn)是样本的函数，则称它为一个统计量，因为样本是随机变量，则统计量g也是随机变量。</p>
+<p>如果总体X的K阶矩存在：
+$$
+E(X^{k})=\mu_{k}
+$$
+则当n趋近于∞时：
+$$
+A_{k}-&gt;\mu_{k},k=1,2,3&hellip;
+$$
+这是因为X1，X2,&hellip;Xn独立且与X同分布，所以
+$$
+X^{k}_{1},X^{k}_{2},X^{k}_{3}&hellip;X^{k}_{n}
+$$
+独立且与Xk同分布，所以有：
+$$
+E(X^{k}_{1})=E(X^{k}_{2})=E(X^{k}_{3})&hellip;=E(X^{k}_{n})=\mu_{k}
+$$
+由大数定理得：
+$$
+A_{k}=\frac{1}{n}*\sum^{n}_{i=1}X^{k}_{i}-&gt;\mu_{k}
+$$
+所以由以一定概率收敛的序列的性质得到：
+$$
+g(A_{1},A_{2},&hellip;,A_{k})-&gt;g(\mu_{1},\mu_{2},&hellip;,\mu_{k}),(2.1)
+$$</p>
+<h4 id="3-样本均值和样本方差的分布律">3. 样本均值和样本方差的分布律</h4>
+<h5 id="均值的分布律">均值的分布律：</h5>
+<p>在不知道总体是哪一种分布的前提下，我们想要了解样本的分布。</p>
+<p>已知<strong>总体均值</strong>和<strong>方差</strong>都存在：
+$$
+均值-&gt;\mu,方差-&gt;\sigma^2,\bar{X},S^2
+$$
+分别是<strong>样本均值</strong>和<strong>样本方差</strong>，则有（证明略，根据方差均值的定义得到）：
+$$
+E(\bar{X}) = \mu, D(\bar{X})=\sigma^2/n
+$$</p>
+<p>$$
+E(S^2)=E[\frac{1}{n-1}<em>(\sum^{n}<em>{i=1}X^2</em>{i}-n\bar{X}^2)]=\frac{1}{n-1}</em>[\sum^{n}<em>{i=1}E(X</em>{i}^2)-n*E(\bar{X}^2)^]=\sigma^2
+$$
+假设总体是正态分布，均值和方差如上所示，得知均值也服从正态分布，均值和方差如上计算结果:
+$$
+\bar{X}-&gt;N(\mu,\sigma^2/n)
+$$</p>
+<h5 id="方差的分布律">方差的分布律：</h5>
+<p>$$
+\frac{(n-1)*S^2}{\sigma^2}-&gt;\chi^2(n-1),(2.2)
+$$</p>
+<p>$$
+\bar{X}和S^2相互独立，（2.3）
+$$</p>
+<p>证明过程使用了正交矩阵的性质，比较新颖：</p>
+<p><strong>第一步</strong>：首先构造左边的目标式子：
+$$
+Z_{i}=\frac{X_{i}-\mu}{\sigma},i=1,2,3&hellip;n
+$$
+得知Z各个样本值相互独立，都服从N（0，1）分布。
+$$
+\bar{Z}=\frac{1}{n}*\sum^{n}_{i=1}\frac{\bar{X_{i}}-\mu}{\sigma}
+$$</p>
+<p>$$
+\frac{(n-1)<em>S^2}{\sigma^2}=\frac{\sum^{n}<em>{i=1}(X</em>{i}-\bar{X})^2}{\sigma^2}=\frac{\sum^{n}<em>{i=1}((X</em>{i}-\mu)-(\bar{X}-\mu))^2}{\sigma^2}=\sum^{n}<em>{i=1}(Z</em>{i}-\bar{Z})^2=\sum^{n}<em>{i=1}Z</em>{i}^2-n</em>\bar{Z}^2
+$$</p>
+<p><strong>第二步</strong>：引入正交矩阵：
+$$
+A=(a_{ij}),其中第一行的元素均为\frac{1}{\sqrt{n}},作正交变换：Y=AZ,\<br>
+Y=\begin{matrix}
+Y_{1} \<br>
+Y_{2} \<br>
+&hellip; \<br>
+Y_{n}
+\end{matrix},Z=\begin{matrix}
+Z_{1} \<br>
+Z_{2} \<br>
+&hellip; \<br>
+Z_{n}
+\end{matrix},\<br>
+由于Y_{i}=\sum^{n}_{j=1}a_{ij}Z_{j},i=1,2,3&hellip;n,故Y_{1},Y_{2},Y_{3}&hellip;Y_{n}为正态变量，由Z-&gt;N(0,1)推出：\<br>
+E(Y_{i})=E(\sum^{n}_{j=1}a_{ij}Z_{j})=0,（2.5）\<br>
+又由cov(Z_{i},Z_{j})=\delta_{ij},(\delta_{ij}=0,当i&lt;&gt;j。\delta_{ij}=1,当i=j)，推出：\<br>
+cov(Y_{i},Y_{k})=cov(\sum^{n}_{l=1}a_{il}*Z_{l},\sum^{n}_{j=1}a_{kj}*Z_{j})=\sum^{n}_{l=1}\sum^{n}_{j=1}a_{il}*a_{kj}*cov(Z_{l},Z_{j})=\sum^{n}_{j=1}a_{ij}*a_{kj}\<br>
+由正交矩阵的定义得出，i=k时cov(Y_{i},Y_{k})=1,i&lt;&gt;k时，cov(Y_{i},Y_{k})=0,从而得出Y的方差为1.（2.6）\<br>
+同样由正交矩阵的定义推出Y_{1},Y_{2}&hellip;Y_{n}两两不相关，又由于n维随机变量（Y_{1},Y_{2}&hellip;Y_{n}）由n维正态随机变量（X_{1},X_{2}&hellip;X_{n}）\<br>
+经由线性变换得到，因此（Y_{1},Y_{2}&hellip;Y_{n}）也是n维正态随机变量，又由Y_{1},Y_{2}&hellip;Y_{n}两两不相关推出Y_{1},Y_{2}&hellip;Y_{n}相互独立。\<br>
+由（2.5），（2.6）得出Y_{i}-&gt;N(0,1),i=1,2,3&hellip;n\<br>
+$$
+**第三步**：证明右边式子：
+$$
+Y_{1}=\sum^{n}_{j=1}a_{1j}Z_{j}=\sum^{n}_{j=1}\frac{1}{\sqrt{n}}*Z_{j}=\sqrt{n}*\bar{Z}\<br>
+\sum^{n}_{i=1}Y_{i}^2=Y^{T}Y=(AZ)^{T}(AZ)=Z^{T}(A^{T}A)Z=Z^{T}IZ=\sum^{n}_{i=1}Z_{i}^2\<br>
+推出：\frac{(n-1)*S^2}{\sigma^2}=\sum^{n}_{i=1}Z_{i}^2-n\bar{Z}^2=\sum^{n}_{i=1}Y^{2}_{i}-Y_{1}^2=\sum^{n}_{i=2}Y_{i}^2\<br>
+因为Y-&gt;N(0,1),所以\sum^{n}_{i=2}Y_{i}^2-&gt;\chi^2(n-1)，（2.2）得证完毕。
+$$</p>
+<p>$$
+再因为\bar{X}=\sigma\bar{Z}+\mu=\frac{\sigma*Y_{1}}{\sqrt{n}}+\mu仅仅依赖Y_{1},而S^2=\frac{\sigma^2}{n-1}*\sum^{n}_{i=2}Y_{i}^2仅仅依赖Y_{2},Y_{3},Y_{4}&hellip;Y_{n},由Y_{n}的独立性，\<br>
+推出\bar{X}和S^2相互独立
+$$</p>
+<h4 id="4-描述性统计总结">4. 描述性统计总结：</h4>
+<ol>
+<li>
+<p>数据集中趋势的度量主要有：均值，中位数，频数，众数，百分位数</p>
+</li>
+<li>
+<p>数据离散趋势的度量主要有：方差，标准差，极差，变异系数，四分位差。</p>
+</li>
+</ol>
+<p>​       1) 极差：用最大值减去最小值，受数据分散程度影响大。</p>
+<p>​       2) 变异系数：需要比较两组数据离散程度时，如果两组数据度量尺度相差太大，或者数据量纲（数据单位）不一样，变异系数可以消除尺度，将数据变换成无单位数据集：
+$$
+CV=100*\frac{S}{\bar{X}}(%)
+$$
+​       3）样本上、下四分位数之差称为四分位差(或半极差)：
+$$
+R_{1}=Q_{3}-Q_{1}
+$$
+​            它也是度量样本分散性的重要数字特征，特别对于具有异常值的数据，它作为分散性具有稳健性</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-06-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/2.%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/">2.数理统计和描述性统计笔记</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">4.方差分析和回归分析</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/">
+            <span class="next-text nav-default">1.随机变量笔记</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-06-25 16:10:23 \u002b0800 CST',
+        title: '2.数理统计和描述性统计笔记',
+        link: decodeURI(location.href),
+        desc: '上一篇笔记已经讲述了概率论的基本内容，我们研究的随机变量分布都是假设已知的，在这一前提去研究它的数学特征（均值，方差，协方差和矩），随机变量',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

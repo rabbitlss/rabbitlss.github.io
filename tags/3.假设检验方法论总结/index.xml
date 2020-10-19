@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3.假设检验方法论总结 on Even - A super concise theme for Hugo</title>
+    <link>https://rabbitlss.github.io/tags/3.%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 3.假设检验方法论总结 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 27 Jun 2020 23:10:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://rabbitlss.github.io/tags/3.%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3.假设检验方法论总结</title>
+      <link>https://rabbitlss.github.io/post/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 27 Jun 2020 23:10:23 +0800</pubDate>
+      
+      <guid>https://rabbitlss.github.io/post/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</guid>
+      <description>1. 基本背景概念： 前一篇笔记讲述了样本的数据分布规律，我们研究样本的数据特征最终是为了推断总体的数据特征，提出某些关于总体的假设，例如是否服从</description>
+    </item>
+    
+  </channel>
+</rss>

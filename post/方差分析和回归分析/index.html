@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>4.方差分析和回归分析 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="4.方差分析和回归分析" />
+<meta property="og:description" content="从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" />
+<meta property="article:published_time" content="2020-06-27T23:10:23+08:00" />
+<meta property="article:modified_time" content="2020-06-27T23:50:23+08:00" />
+<meta itemprop="name" content="4.方差分析和回归分析">
+<meta itemprop="description" content="从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些">
+<meta itemprop="datePublished" content="2020-06-27T23:10:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-27T23:50:23&#43;08:00" />
+<meta itemprop="wordCount" content="864">
+
+
+
+<meta itemprop="keywords" content="preview,4.方差分析和回归分析,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="4.方差分析和回归分析"/>
+<meta name="twitter:description" content="从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">4.方差分析和回归分析</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-27 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"> 概率统计 </a>
+            </div>
+          <span class="more-meta"> 864 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些原因对结果的影响是否显著，如何保证实验或者生产结果的稳定，就要使用到本节课的内容。</p>
+<h4 id="概念定义">概念定义</h4>
+<p>实验中要考察的指标被称为<strong>实验指标，<strong>影响实验指标的条件称为</strong>因素</strong>，一类因素是我们可以控制的（可控因素），一类是人们不能控制的，下面我们讲的都是可控因素，因素所处的状态，称为该因素的<strong>水平</strong>，一项实验中只有一个因素的改变称为<strong>单因素实验</strong>，如果多于一个因素在改变称为<strong>多因素实验</strong>。</p>
+<h4 id="单因素实验的方差分析">单因素实验的方差分析</h4>
+<p>设因素A有S个水平$A_{1}$,$A_2$,&hellip;$A_{s}$,在 水平$A_{j}$下进行$n_{j}$次独立实验，得到的样本总和分别是$T_{.1}$,$T_{.2}$,$T_{.3}$&hellip;$T_{.s}$. 样本均值分别为$\bar{X_{.1}}$,$\bar{X_{.2}}$,$\bar{X_{.3}}$&hellip;$\bar{X_{.s}}$.总体均值为$\mu_{1}$,$\mu_{2}$,$\mu_{3}$&hellip;$\mu_{s}$.</p>
+<p>我们假定：各个水平$A_{j}$下的样本$\bar{X_{1j}}$,$\bar{X_{2j}}$,$\bar{X_{3j}}$&hellip;$\bar{X_{n_{j}j}}$, 来自具有相同的方差$\sigma^{2}$,均值分别为$\mu_{j}$的正态总体$N(\mu_{j},\sigma^2)$,$\mu_{j},\sigma^2$未知，且设不同水平$A_{j}$下的样本相互独立。</p>
+<p>因为$X_{ij}$-&gt;$N(\mu_{j},\sigma^2)$,即有$X_{ij}$-$\mu_{j}$ -&gt; $N(0,\sigma^2)$, $X_{ij}$-$\mu_{j}$可看作是随机误差：
+$$
+X_{ij}=\mu_{j} + \xi_{ij}\<br>
+\xi_{ij} -&gt; N(0,\sigma^2), 各\xi独立\<br>
+i=1,2,3&hellip;n_{j}, j=1,2,3&hellip;s (1.1)
+$$
+式子（1.1）被称为单因素方差分析的数学模型。</p>
+<p>有几个重要的平方和：</p>
+<p><strong>总偏差平方和</strong>：</p>
+<p><strong>误差平方和：</strong></p>
+<p><strong>效应平方和：</strong></p>
+<h4 id="双因素实验的方差分析">双因素实验的方差分析</h4>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-06-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/4.%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">4.方差分析和回归分析</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">3.假设检验方法论总结</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/">
+            <span class="next-text nav-default">2.数理统计和描述性统计笔记</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-06-27 23:10:23 \u002b0800 CST',
+        title: '4.方差分析和回归分析',
+        link: decodeURI(location.href),
+        desc: '从前面的内容中我们知道了如何根据样本的数学特征来推断整体的特征。如果我知道了两个整体的结果差异，想更近一步判断这个差异是哪些原因造成的，这些',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

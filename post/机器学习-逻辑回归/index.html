@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>机器学习-逻辑回归 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="1 什么是逻辑回归？ 逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="机器学习-逻辑回归" />
+<meta property="og:description" content="1 什么是逻辑回归？ 逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" />
+<meta property="article:published_time" content="2020-08-20T23:10:23+08:00" />
+<meta property="article:modified_time" content="2020-08-20T23:50:23+08:00" />
+<meta itemprop="name" content="机器学习-逻辑回归">
+<meta itemprop="description" content="1 什么是逻辑回归？ 逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊">
+<meta itemprop="datePublished" content="2020-08-20T23:10:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-20T23:50:23&#43;08:00" />
+<meta itemprop="wordCount" content="3069">
+
+
+
+<meta itemprop="keywords" content="preview,机器学习,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="机器学习-逻辑回归"/>
+<meta name="twitter:description" content="1 什么是逻辑回归？ 逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">机器学习-逻辑回归</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-20 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"> 机器学习 </a>
+            </div>
+          <span class="more-meta"> 3069 words </span>
+          <span class="more-meta"> 7 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <h1 id="1-什么是逻辑回归">1 什么是逻辑回归？</h1>
+<p>逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊断，经济预测等领域。虽然名字里带“回归”，但是它实际上是一种分类方法，不仅能进行分类，还能获取每个类别的概率预测值。常用于两分类问题。
+logistic回归通过函数L将w‘x+b对应一个隐状态p，p =L(w‘x+b),然后根据p 与1-p的大小决定因变量的值。如果L是logistic函数，就是logistic回归，如果L是多项式函数就是多项式回归。</p>
+<h1 id="2-逻辑回归的损失函数">2 逻辑回归的损失函数</h1>
+<h2 id="21逻辑回归为何使用sigmoid函数">2.1逻辑回归为何使用Sigmoid函数</h2>
+<p>Sigmoid函数形式如下：
+<img src="https://img-blog.csdnimg.cn/20200819202003383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI2ODU3OTA3,size_16,color_FFFFFF,t_70#pic_center" alt="Sigmoid函数图像">
+对于函数g(z)=1(1+e−z)g(z)=\frac{1}{(1+e^{-z})}<em>g</em>(<em>z</em>)=(1+<em>e</em>−<em>z</em>)1​，当z≥0 时,y≥0.5,分类为1，当 z&lt;0时,y&lt;0.5,分类为0。
+使用Sigmoid函数原因有两个方面：
+1）Sigmoid 函数自身的性质
+a. sigmoid 函数连续，单调递增
+b. sigmiod 函数关于（0，0.5） 中心对称
+c. 对sigmoid函数求导后计算速度快
+p=ex1+exp=ex1+exp=ex1+exp=ex1+ex<em>p</em>=<em>e**x</em>1+<em>e<strong>x</strong>p</em>=<em>e**x</em>1+<em>e**x</em>
+p′=p∗(1−p)p′=p∗(1−p)p′=p∗(1−p)p′=p∗(1−p)<em>p</em>′=<em>p</em>∗(1−<em>p</em>)<em>p</em>′=<em>p</em>∗(1−<em>p</em>)
+2）指数族
+logistic回归的损失函数为非指数族，逻辑回归认为函数其概率服从伯努利分布，将其写成指数族分布的形式。</p>
+<h2 id="22逻辑回归的步骤">2.2逻辑回归的步骤</h2>
+<p>（1）构造预测函数h
+（2）构造损失函数J
+（3）令J最小并求得回归参数w</p>
+<h2 id="23-预测函数的确定">2.3 预测函数的确定</h2>
+<p>逻辑回归主要用于二分类问题（即输出只有两种，分别代表两个类别），所以利用了Logistic函数（或称为Sigmoid函数），函数形式为：
+g(z)=1(1+e−z)g(z)=\frac{1}{(1+e^{-z})}<em>g</em>(<em>z</em>)=(1+<em>e</em>−<em>z</em>)1​</p>
+<p>逻辑回归从其原理上来说，其实是实现了一个决策边界：</p>
+<p>$θ0x0+θ1x1+,&hellip;,+θnxn=∑ni=0θixi=θTx\theta_0x_0+\theta_1x_1+,&hellip;,+\theta_nx_n= \sum_{i=0}^n\theta_ix_i=\theta^Tx*θ*0*x*0+*θ*1*x*1+,&hellip;,+*θ**n**x**n*=*i*=0∑*n**θ**i**x**i*=*θ**T**x$*
+构造预测函数：（将回归方程写入其中）
+$hθ(x)=g(θTx)=1(1+e−θTx)h_\theta(x)=g(\theta^Tx )=\frac{1}{(1+e^{-\theta^Tx })}*h**θ*(*x*)=*g*(*θ**T**x*)=(1+*e*−*θ**T**x*)1
+p=p(y=1∣x,θ)=hθ(x,θ)=11+e−(w0+θTx)p=p(y=1|x,\theta)=h_\theta(x,\theta)=\frac{1}{1+e^{-(w_0+\theta^Tx)}}*p*=*p*(*y*=1∣*x*,*θ*)=*h**θ*(*x*,*θ*)=1+*e*−(*w*0+*θ**T**x*)1$</p>
+<p>函数$hθ(x,θ)h_\theta(x,\theta)*h**θ*(*x*,*θ*)$的值，表示结果取1的概率，所以对于因变量x,分类结果为1和0的概率分别为：
+$p(y=1∣x,θ)=hθ(x,θ)p(y=1|x,\theta)=h_\theta(x,\theta)*p*(*y*=1∣*x*,*θ*)=*h**θ*(*x*,*θ*)p(y=0∣x,θ)=1−hθ(x,θ)p(y=0|x,\theta)=1-h_\theta(x,\theta)*p*(*y*=0∣*x*,*θ*)=1−*h**θ*(*x*,*θ*)$</p>
+<h2 id="24损失函数的构造">2.4损失函数的构造</h2>
+<p>上边两式可改写为：
+$p(y∣x,θ)=hθ(x,θ)y(1−hθ(x,θ))1−yp(y|x,\theta)=h_\theta(x,\theta)^y(1-h_\theta(x,\theta))^{1-y}*p*(*y*∣*x*,*θ*)=*h**θ*(*x*,*θ*)*y*(1−*h**θ*(*x*,*θ*))1−*y*上式是在参数θ\theta*θ*下，元组类标号为y的后验概率。假设现在已经得到了一个抽样样本，那么联合概率∏ni=1p(yi∣Xi;θ)\prod_{i=1}^np(y_i|X_i;\theta)∏*i*=1*n**p*(*y**i*∣*X**i*;*θ*)$的大小就可以反映模型的代价。联合概率的值越大，代价函数越小。</p>
+<p>联合概率公式中采用连乘的方法不好计算，可用极大似然估计的方法进行求解，得到最大的参数θ\theta<em>θ</em>，这个最大的参数将是最佳参数，使得联合概率的值最大，代价值最小。因此就得到了逻辑回归的损失函数：
+L(θ)=∏ni=1P(yi∣xi;θ)=∏ni=1(hθ(xi,θ))yi(1−hθ(xi,θ))1−yiL(\theta)=\prod_{i=1}^nP(y_i|x_i;\theta)=\prod_{i=1}^n(h_\theta(x_i,\theta))^{y_i}(1-h_\theta(x_i,\theta))^{1-y_i}*L*(*θ*)=*i*=1∏*n*​*P*(*y**i*​∣*x**i*​;*θ*)=*i*=1∏*n*​(*h**θ*​(*x**i*​,*θ*))*y**i*​(1−*h**θ*​(*x**i*​,*θ*))1−*y**i*​损失函数的对数似然函数为：
+l(θ)=logL(θ)=∑ni=1(yiloghθ(xi,θ))+((1−yi)log(1−hθ(xi,θ)))l(\theta)=logL(\theta)=\sum_{i=1}^n(y_ilogh_\theta(x_i,\theta))+((1-y_i)log(1-h_\theta(x_i,\theta)))*l*(*θ*)=*l**o**g**L*(*θ*)=*i*=1∑*n*​(*y**i*​*l**o**g**h**θ*​(*x**i*​,*θ*))+((1−*y**i*​)*l**o**g*(1−*h**θ*​(*x**i*​,*θ*)))
+得到的这个函数越大,证明我们得到的W就越好.因为在函数最优化的时候习惯让一个函数越小越好,所以我们在前边加一个负号.得到逻辑回归的损失函数公式如下:
+J(θ)=−l(θ)=−∑ni=1(yiloghθ(xi,θ))−((1−yi)log(1−hθ(xi,θ)))J(\theta)=-l(\theta)=-\sum_{i=1}^n(y_ilogh_\theta(x_i,\theta))-((1-y_i)log(1-h_\theta(x_i,\theta)))*J*(*θ*)=−*l*(*θ*)=−*i*=1∑*n*​(*y**i*​*l**o**g**h**θ*​(*x**i*​,*θ*))−((1−*y**i*​)*l**o**g*(1−*h**θ*​(*x**i*​,*θ*)))</p>
+<h1 id="3-逻辑回归的模型">3 逻辑回归的模型</h1>
+<p>对于模型的训练而言：实质上来说就是利用数据求解出对应的模型的特定的ω。从而得到一个针对于当前数据的特征逻辑回归模型。</p>
+<h2 id="31模型求解与推导">3.1模型求解与推导</h2>
+<p>模型回归得到的是一个最优化模型，求解方法有梯度下降法、牛顿法等，这里求解逻辑回归的损失函数，采用最基本的方法——梯度下降法。
+求解步骤如下:</p>
+<p>1-随机一组W.
+2-将W带入交叉熵损失函数,让得到的点沿着负梯度的方向移动.
+3-循环第二步.</p>
+<h2 id="32最终模型">3.2最终模型</h2>
+<p>待补充</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-20
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">动态规划算法</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">
+            <span class="next-text nav-default">分治算法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-08-20 23:10:23 \u002b0800 CST',
+        title: '机器学习-逻辑回归',
+        link: decodeURI(location.href),
+        desc: '1 什么是逻辑回归？ 逻辑回归一般指logistic回归，是一种广义的线性回归（generalized linear model），常用于数据挖掘，疾病自动诊',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

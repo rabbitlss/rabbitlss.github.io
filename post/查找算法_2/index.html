@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>查找算法2 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="rabbitlss" /><meta name="description" content="1.两数之和 给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 你可以假设每种" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95_2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="查找算法2" />
+<meta property="og:description" content="1.两数之和 给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 你可以假设每种" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95_2/" />
+<meta property="article:published_time" content="2020-08-29T00:10:23+08:00" />
+<meta property="article:modified_time" content="2020-08-29T00:50:23+08:00" />
+<meta itemprop="name" content="查找算法2">
+<meta itemprop="description" content="1.两数之和 给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 你可以假设每种">
+<meta itemprop="datePublished" content="2020-08-29T00:10:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-29T00:50:23&#43;08:00" />
+<meta itemprop="wordCount" content="3538">
+
+
+
+<meta itemprop="keywords" content="preview,算法,tag-5," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="查找算法2"/>
+<meta name="twitter:description" content="1.两数之和 给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 你可以假设每种"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">梦之图景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">梦之图景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">查找算法2</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+          <span class="more-meta"> 3538 words </span>
+          <span class="more-meta"> 8 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>1.两数之和
+给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<p>示例:
+给定
+nums = [2, 7, 11, 15], target = 9
+因为
+nums[0] + nums[1] = 2 + 7 = 9
+所以返回[0, 1]</p>
+<p>解法一：
+将数组排序，之后设置两个高低指针，从两端遍历，若所指数之和小于target，则低指针加一，若大于则高指针减一，等于则返回。</p>
+<p>![屏幕快照 2020-08-29 上午12.40.28](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.40.28.png)</p>
+<p>解法二：
+暴力求解，两层循环:</p>
+<p>![屏幕快照 2020-08-29 上午12.40.59](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.40.59.png)</p>
+<p>解法三：使用字典映射，键为数组元素，值为数组元素的下标：</p>
+<p>![屏幕快照 2020-08-29 上午12.41.27](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.41.27.png)</p>
+<ol>
+<li>三数之和
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+注意：答案中不可以包含重复的三元组。</li>
+</ol>
+<p>示例：
+给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+满足要求的三元组集合为：
+[
+[-1, 0, 1],
+[-1, -1, 2]
+]</p>
+<p>解法一：三数之和为0，则至少有一个数必然小于等于0，根据此性质，将数组排序，则第一个数应存在于小于等于0的范围，第二个数和第三个数在第一个数之后的范围里寻找，即化为了两数之和的问题，使用高低指针法解决即可：</p>
+<p>​	![屏幕快照 2020-08-29 上午12.42.02](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.42.02.png)</p>
+<ol>
+<li>最接近的三数之和
+给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案
+示例：
+输入：nums = [-1,2,1,-4], target = 1
+输出：2
+解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。</li>
+</ol>
+<p>提示：
+3 &lt;= nums.length &lt;= 10^3
+-10^3 &lt;= nums[i] &lt;= 10^3
+-10^4 &lt;= target &lt;= 10^4</p>
+<p>解法一：
+此题将三数之和为0改为三数之和最接近某数，令后两数之和等于target减去第一个数即可回到三数之和的套路，定义一个ans来记录最接近target的值，
+然后依然使用高低指针法查找，每次产生的的三数之和都要判断看是否需要更新，注意判断更新的条件写法以及高低指针移动时跳过相同值：</p>
+<p>![屏幕快照 2020-08-29 上午12.42.44](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.42.44.png)</p>
+<p>四数之和
+给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。
+注意：
+答案中不可以包含重复的四元组。
+示例：
+给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
+满足要求的四元组集合为：
+[
+[-1, 0, 0, 1],
+[-2, -1, 1, 2],
+[-2, 0, 0, 2]
+]
+解法一：
+此题需要多加一层循环，选定第一个数后，第二个数从第一个数的后一个数开始，就转化为了三数之和问题，注意每一层循环里最开始跳过重复值的细节</p>
+<p>![屏幕快照 2020-08-29 上午12.43.14](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.43.14.png)</p>
+<ol>
+<li>字母异位词分组
+给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+示例:
+输入: [“eat”, “tea”, “tan”, “ate”, “nat”, “bat”]
+输出:
+[
+[“ate”,“eat”,“tea”],
+[“nat”,“tan”],
+[“bat”]
+]
+说明：
+所有输入均为小写字母。
+不考虑答案输出的顺序。</li>
+</ol>
+<p>方法一：排序法
+使用collections.defaultdict来初始化一个字典，然后将每一个字符串都排序然后转化成元组，作为键写入字典，字典的值最开始是一些空列表，用来记录字符组成与键相同的字符串：</p>
+<p>![屏幕快照 2020-08-29 上午12.43.42](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.43.42.png)</p>
+<p>方法二：计数法
+还是创建一个字典，键为一个记录字母出现次数的元组，值还是记录字符串的列表：</p>
+<p>![屏幕快照 2020-08-29 上午12.44.00](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.44.00.png)</p>
+<ol>
+<li>直线上最多的点数
+给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。
+示例 1:
+输入: [[1,1],[2,2],[3,3]]
+输出: 3
+解释:
+^
+|
+| o
+| o
+| o
+±&mdash;&mdash;&mdash;&mdash;&gt;
+0 1 2 3 4
+示例 2:
+输入: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
+输出: 4
+解释:
+^
+|
+| o
+| o o
+| o
+| o o
+±&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&gt;
+0 1 2 3 4 5 6</li>
+</ol>
+<p>解法一：使用求最大公约数的方法求斜率，化简为int/int最简形式，这样不存在精度问题，创建一个字典，以化简后的斜率为键，统计经过一个点的所有直线中哪个直线上点最多，依次遍历所有点，即可找出直线上最多的点：</p>
+<p>![屏幕快照 2020-08-29 上午12.44.38](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.44.38.png)</p>
+<p>![屏幕快照 2020-08-29 上午12.44.54](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.44.54.png)</p>
+<p>存在重复元素
+给定一个整数数组和一个整数k，判断数组中是否存在两个不同的索引i和j，使得nums[i] = nums[j]，并且i和j的差的绝对值至多为k。
+示例1:
+输入: nums = [1, 2, 3, 1], k = 3
+输出: true
+示例2:
+输入: nums = [1, 0, 1, 1], k = 1
+输出: true
+示例
+3:输入: nums = [1, 2, 3, 1, 2, 3], k = 2
+输出: false
+解法一：暴力解法，用一个指针i遍历数组，检查在i+1到i+k+1的范围内所有值看是否与i相同：</p>
+<p>![屏幕快照 2020-08-29 上午12.45.22](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.45.22.png)</p>
+<p>解法二：建立一个字典，遍历nums中的元素，如果nums[i]在字典中并且下标与i的距离小于等于k，则返回true：</p>
+<p>![屏幕快照 2020-08-29 上午12.45.41](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.45.41.png)</p>
+<p>存在重复元素
+在整数数组nums中，是否存在两个下标i和j，使得nums[i]和nums[j]的差的绝对值小于等于t ，且满足i和j的差的绝对值也小于等于ķ 。
+如果存在则返回true，不存在返回false。
+示例1:
+输入: nums = [1, 2, 3, 1], k = 3, t = 0
+输出: true
+示例2:
+输入: nums = [1, 0, 1, 1], k = 1, t = 2
+输出: true
+示例3:
+输入: nums = [1, 5, 9, 1, 5, 9], k = 2, t = 3
+输出: false</p>
+<p>解法一：遍历I，在I后的k个数里寻找符合条件的数</p>
+<p>![屏幕快照 2020-08-29 上午12.46.07](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.46.07.png)</p>
+<p>方法二：</p>
+<p>![屏幕快照 2020-08-29 上午12.46.33](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.46.33.png)</p>
+<p>![屏幕快照 2020-08-29 上午12.46.51](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.46.51.png)</p>
+<p>回旋镖的数量
+给定平面上 n 对不同的点，“回旋镖” 是由点表示的元组 (i, j, k) ，其中 i 和 j 之间的距离和 i 和 k 之间的距离相等（需要考虑元组的顺序）。
+找到所有回旋镖的数量。你可以假设 n 最大为 500，所有点的坐标在闭区间 [-10000, 10000] 中。
+示例:
+输入:
+[[0,0],[1,0],[2,0]]
+输出:
+2
+解释:
+两个回旋镖为 [[1,0],[0,0],[2,0]] 和 [[1,0],[2,0],[0,0]]
+解法一：每次固定一个点，使用哈希表存储其他点到这个点的距离，如果存在记录次数，回旋镖的数量应为次数*（次数-1）：</p>
+<p>![屏幕快照 2020-08-29 上午12.47.11](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.47.11.png)</p>
+<ol>
+<li>四数相加 II
+给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
+为了使问题简单化，所有的 A, B, C, D 具有相同的长度 N，且 0 ≤ N ≤ 500 。所有整数的范围在 -228 到 228 - 1 之间，最终结果不会超过 231 - 1 。
+例如:
+输入:
+A = [ 1, 2]
+B = [-2,-1]
+C = [-1, 2]
+D = [ 0, 2]
+输出:
+2
+解释:
+两个元组如下:</li>
+<li>(0, 0, 0, 1) -&gt; A[0] + B[0] + C[0] + D[1] = 1 + (-2) + (-1) + 2 = 0</li>
+<li>(1, 1, 0, 0) -&gt; A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0</li>
+</ol>
+<p>解法一：
+初始化计数器 dic，dic 记录数组 A 和 B 元素的和，及其次数
+遍历数组 C 和 D，累加满足四数相加和为 0 的个数：</p>
+<p>![屏幕快照 2020-08-29 上午12.47.37](/Users/lishanshan/Desktop/屏幕快照 2020-08-29 上午12.47.37.png)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">rabbitlss</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          <a href="/tags/tag-5/">tag-5</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">
+            <span class="next-text nav-default">查找算法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2020-08-29 00:10:23 \u002b0800 CST',
+        title: '查找算法2',
+        link: decodeURI(location.href),
+        desc: '1.两数之和 给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 你可以假设每种',
+        owner: 'rabbitlss',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://rabbitlss.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">rabbitlss</span>
+  </span>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

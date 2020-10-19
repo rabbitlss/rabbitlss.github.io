@@ -1,0 +1,309 @@
+<?xml-stylesheet type="text/xsl" href="https://rabbitlss.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://rabbitlss.github.io/about/</loc>
+    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/preview/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/tag-5/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95_2/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-29T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-26T00:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-23T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2020-08-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2020-08-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</loc>
+    <lastmod>2020-08-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-19T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/</loc>
+    <lastmod>2020-08-04T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/nlp%E6%96%B0%E9%97%BB%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02/</loc>
+    <lastmod>2020-08-04T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB_fasttext/</loc>
+    <lastmod>2020-08-04T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/nlp/</loc>
+    <lastmod>2020-08-04T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/nlp/</loc>
+    <lastmod>2020-08-04T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E4%BD%BF%E7%94%A8gensim%E8%AE%AD%E7%BB%83word2vec/</loc>
+    <lastmod>2020-08-01T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/news_%E8%B5%9B%E9%A2%98%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2020-07-22T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/ml/</loc>
+    <lastmod>2020-07-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/ml/</loc>
+    <lastmod>2020-07-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/news_%E8%B5%9B%E9%A2%98%E7%90%86%E8%A7%A3/</loc>
+    <lastmod>2020-07-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/tag-8/</loc>
+    <lastmod>2020-07-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E5%86%B3%E7%AD%96%E6%A0%91/</loc>
+    <lastmod>2020-07-20T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/tag-7/</loc>
+    <lastmod>2020-07-11T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2020-07-11T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/%E6%9D%82%E9%80%89/</loc>
+    <lastmod>2020-07-11T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/%E6%9D%82%E9%80%89/</loc>
+    <lastmod>2020-07-11T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/3.%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2020-06-27T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2020-06-27T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/4.%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2020-06-27T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2020-06-27T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/categories/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/</loc>
+    <lastmod>2020-06-27T23:50:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/2.%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-06-25T16:10:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-06-25T16:10:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/tags/1.%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-06-22T12:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2020-06-22T12:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/spark-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-_%E5%86%B3%E7%AD%96%E6%A0%91/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://rabbitlss.github.io/post/%E7%AE%97%E6%B3%95%E5%9C%A8%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
